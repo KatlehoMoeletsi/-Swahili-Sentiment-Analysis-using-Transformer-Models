@@ -1,0 +1,55 @@
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ── Jupyter ───────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── Data files (large; download separately via AfriSenti) ────
+data/raw/*.tsv
+data/raw/*.csv
+data/raw/*.json
+# Keep processed data? Comment out the line below to track it:
+data/processed/*.csv
+
+# ── Trained models (large binary files) ──────────────────────
+models/*.pkl
+models/xlm_roberta_swahili/
+models/afriberta_swahili/
+# To share lightweight sklearn models, remove the *.pkl line above.
+
+# ── HuggingFace cache ─────────────────────────────────────────
+.cache/
+*.cache/
+results/checkpoints/
+
+# ── Figures (generated; reproducible from code) ──────────────
+# results/figures/           # uncomment to exclude generated charts
+
+# ── OS / IDE ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── Misc ──────────────────────────────────────────────────────
+*.log
+*.tmp
+wandb/
