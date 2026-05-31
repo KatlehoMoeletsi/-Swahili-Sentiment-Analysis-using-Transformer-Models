@@ -207,16 +207,40 @@ Trains Logistic Regression, Naive Bayes, and Linear SVM. Saves:
 - `results/baseline_results.csv`
 - `results/figures/confusion_*.png`
 - `models/*.pkl`
-
 ### Step 3: Transformer Models
 
-> Requires `transformers`, `torch`, and `sentencepiece`. A GPU is strongly recommended.
+> Requires `transformers`, `torch`, `sentencepiece`, `protobuf`, and `tiktoken`. A GPU is strongly recommended.
+
+#### Install Required Packages
+
+```bash
+pip install transformers torch sentencepiece protobuf tiktoken
+```
+
+If you encounter package issues, upgrade pip first:
+
+```bash
+python -m pip install --upgrade pip
+pip install transformers torch sentencepiece protobuf tiktoken
+```
+
+Verify the installation:
+
+```bash
+python -c "import transformers; print('transformers OK')"
+python -c "import torch; print('torch OK')"
+python -c "import sentencepiece; print('sentencepiece OK')"
+python -c "import google.protobuf; print('protobuf OK')"
+python -c "import tiktoken; print('tiktoken OK')"
+```
+
+#### Fine-tune Transformer Models
 
 ```bash
 # Fine-tune both models (default)
 python src/transformer_models.py --model both
 
-# Fine-tune only one
+# Fine-tune only one model
 python src/transformer_models.py --model xlm-roberta
 python src/transformer_models.py --model afriberta
 
@@ -224,7 +248,43 @@ python src/transformer_models.py --model afriberta
 python src/transformer_models.py --model afriberta --epochs 5 --batch 32 --lr 1e-5
 ```
 
-Saves fine-tuned model to `models/afriberta_swahili/` and `models/xlm_roberta_swahili/`.
+#### Outputs
+
+The script saves:
+
+```text
+models/
+├── afriberta_swahili/
+└── xlm_roberta_swahili/
+
+results/
+├── transformer_results.csv
+└── figures/
+    ├── confusion_afriberta.png
+    └── confusion_xlm_roberta.png
+```
+
+#### Troubleshooting
+
+If AfriBERTa fails with errors mentioning:
+
+```text
+SentencePieceExtractor requires the protobuf library
+```
+
+or
+
+```text
+ValueError: `tiktoken` is required to read a `tiktoken` file
+```
+
+install the missing dependencies:
+
+```bash
+pip install protobuf tiktoken
+```
+
+and rerun the training command.
 
 ### Step 4: Data Augmentation (optional)
 
