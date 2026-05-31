@@ -151,9 +151,11 @@ def train_and_evaluate(processed_path: str = PROCESSED_DATA_PATH) -> pd.DataFram
 
     # ── Logistic Regression ───────────────────
     lr = LogisticRegression(
-        max_iter=1000, C=1.0, solver="lbfgs",
-        multi_class="multinomial", random_state=RANDOM_SEED
-    )
+    max_iter=1000,
+    C=1.0,
+    solver="lbfgs",
+    random_state=RANDOM_SEED
+)
     lr.fit(X_train_tfidf, y_train)
     lr_pred = lr.predict(X_test_tfidf)
     results.append(evaluate("Logistic Regression", y_test, lr_pred))
