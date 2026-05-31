@@ -169,7 +169,7 @@ def fine_tune(
     print(f"       Train: {len(X_train):,}  |  Test: {len(X_test):,}")
     print(f"       Epochs: {num_epochs}  |  Batch: {batch_size}  |  LR: {learning_rate}")
 
-    tokenizer = AutoTokenizer.from_pretrained(ckpt, use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained(ckpt)
     model     = AutoModelForSequenceClassification.from_pretrained(ckpt, num_labels=3)
 
     # Tokenise
