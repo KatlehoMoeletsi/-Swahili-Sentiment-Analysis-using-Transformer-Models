@@ -59,14 +59,14 @@ We also examine the effect of SentencePiece subword tokenisation and back-transl
 ---
 
 ## Results Summary
-
 | Model | Accuracy | F1 (Weighted) | Precision | Recall |
 |---|---|---|---|---|
-| Naive Bayes | 0.6821 | 0.6754 | 0.6892 | 0.6821 |
-| Logistic Regression | 0.7312 | 0.7289 | 0.7341 | 0.7312 |
-| Linear SVM | 0.7501 | 0.7478 | 0.7512 | 0.7501 |
-| XLM-RoBERTa | 0.7958 | 0.7901 | 0.7934 | 0.7958 |
-| **AfriBERTa** | **0.8124** | **0.8093** | **0.8110** | **0.8124** |
+| Naive Bayes | 0.5604 | 0.5014 | 0.4705 | 0.5604 |
+| Logistic Regression | 0.6154 | 0.5159 | 0.5608 | 0.6154 |
+| Linear SVM | 0.5714 | 0.5142 | 0.4802 | 0.5714 |
+| XLM-RoBERTa | 0.5934 | 0.4420 | 0.3521 | 0.5934 |
+| AfriBERTa | 0.6374 | 0.5679 | 0.5734 | 0.6374 |
+
 
 > **Replace these with your actual experiment outputs** — run the pipeline and paste from `results/final_comparison.csv`.
 
